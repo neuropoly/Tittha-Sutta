@@ -52,3 +52,28 @@ series-001.nii.gz,14,11.165874519111853,11.474352432215035,20.035023744667118,0.
 ```
 
 ## Add your own metrics
+Create your custom python module with your own metric using the `@metric` decorator. The decorated function's name will be the name column's name in the CSV.
+```python
+### custom_metric.py ###
+from tittha_sutta import metric, Context, ROI, tittha_sutta_main
+
+import numpy as np
+
+@metric(per_slice=True)
+def CUSTOM_METRIC(ctx: Context) -> float:
+    data = ctx.data # access slice data
+    # access specific masked data
+    spinalcord = ctx[ROI.spinalcord]
+    graymatter = ctx[ROI.graymatter]
+    whitematter = ctx[ROI.whitematter]
+
+    # return float number
+    return data.mean() / np.sqrt(spinalcord.std()**2 + graymatter.std()**2)
+
+if __name__ == '__main__':
+    tittha_sutta_main()
+```
+Run it:
+```
+$ python custom_metric.py nifti_dir
+```
