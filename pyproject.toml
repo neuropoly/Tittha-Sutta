@@ -1,7 +1,7 @@
 [project]
 name = "tittha-sutta"
 version = "0.1.0"
-description = "Add your description here"
+description = "MRI metrics tool"
 readme = "README.md"
 authors = [
     { name = "Antoine Reid", email = "antoine-2.reid@etud.polymtl.ca" },
