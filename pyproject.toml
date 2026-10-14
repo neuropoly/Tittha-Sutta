@@ -9,10 +9,12 @@ authors = [
 ]
 
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "nibabel>=5.4.2",
+]
 
 [project.scripts]
-tittha-sutta = "tittha_sutta:main"
+tittha-sutta = "tittha_sutta.metrics:main"
 
 [build-system]
 requires = ["uv_build>=0.12.23,<0.13.0"]
