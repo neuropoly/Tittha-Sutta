@@ -1,0 +1,19 @@
+[project]
+name = "tittha-sutta"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Antoine Reid", email = "antoine-2.reid@etud.polymtl.ca" },
+    { name = "Mathis Charles-Alain Ors", email = "mathis.ors@etud.polymtl.ca" }
+]
+
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+tittha-sutta = "tittha_sutta:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
